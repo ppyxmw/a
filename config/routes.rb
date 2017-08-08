@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meals
   devise_for :chefs
   root 'welcome#index'
 
