@@ -6,10 +6,12 @@ class MealsController < ApplicationController
   end
   
   def index
+    @meals = current_chef.meals.all
   end
   
   def create
-    @meal = Meal.new(meal_params[:meal])
+    @meal = Meal.new(meal_params)
+    @meal.chef = current_chef
     respond_to do |wants|
       if @meal.save
         flash[:notice] = 'Your meal was successfully created.'
@@ -28,7 +30,6 @@ class MealsController < ApplicationController
   
   private
     def meal_params
-      params[:meal]["chef_id"] = current_chef.id
       params.require(:meal).permit(:name, :description, :chef_id)
     end
 end

@@ -1,3 +1,4 @@
+<%= render 'shared/errors', obj: @meal %>
 <h3>Add new meal</h3>
 
 <%= form_for(@meal) do |f| %>
@@ -8,9 +9,6 @@
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_field :description%>
-  </div>
-  <div class="field">  
-    <%= f.hidden_field :chef_id, :value => @chef.id %>
   </div>
   <div class="actions">
     <%= f.submit %>
