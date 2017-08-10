@@ -63,3 +63,103 @@
 .navbar-brand {
   margin-top: 3px;
 }
+
+
+#indexwrapper {
+  // background:#e2e1dd;
+  clear: both;
+  margin: 0;
+  min-width: 314px;
+  padding: 10px 0 20px 0;
+  width: 100%
+}
+
+.post-section {
+  float: left;
+  width: 301px;
+}
+
+.description {
+  height: 52px;
+  margin: 20px 0px 0px 0px
+}
+
+.picture {
+  border: 0;
+  color: #58595b;
+  cursor: pointer;
+  font-size: 11px;
+  // height: 147px;
+  margin-bottom: 3px;
+  overflow: hidden;
+  position: relative;
+  height: 275px;
+  width: 275px;
+}
+
+.postid {
+  float: left;
+  font-size: 13px;
+  margin-left: 12px;
+  width: 75px;
+    line-height: 10px;
+  padding-bottom: 7px;
+    color:#00a63f;
+}
+
+.submitter {
+  float: right;
+  font-size: 13px;
+  margin-right: 12px;
+  text-align: right;
+  width: 175px;
+  line-height: 10px;
+  padding-bottom: 7px;
+  color:#00a63f;
+}
+
+.submitter:hover {
+  text-decoration: underline;
+}
+.card {
+  position: block;
+  display: inline-block;
+  background: #fff;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.2);
+  height: 372px;
+  width: 275px;
+  margin: 13px 26px 13px 0px;
+}
+
+.description {
+  clear: both;
+  color: #626365;
+  font-size: 13px;
+  height: 80px;
+  line-height: 120%;
+  margin: 4px 0px 10px 0;
+  overflow: hidden;
+  padding: 0;
+  text-transform: none;
+  // font-family: Trebuchet MS;
+  height: 50px;
+  line-height: 16px;
+  margin: 20px 0px 2px 0px;
+  padding: 0 12px;
+}
+
+.row {
+  margin-top: 73px;
+}
+
+body {
+  background-image: url(https://www.transparenttextures.com/patterns/twinkle-twinkle.png);
+  // light-wool
+  // mirrored-squares
+  // nistri
+  // ps-neutral
+  // stardust
+  // transparent-square-tiles
+  // twinkle-twinkle
+  background-attachment: fixed;
+}
