@@ -16,7 +16,7 @@ class MealsController < ApplicationController
     respond_to do |wants|
       if @meal.save
         flash[:notice] = 'Your meal was successfully created.'
-        wants.html { redirect_to(@meal) }
+        wants.html { redirect_to meals_path }
         wants.xml  { render :xml => @meal, :status => :created, :location => @meal }
       else
         wants.html { render :action => "new" }
@@ -28,6 +28,14 @@ class MealsController < ApplicationController
   def show
      @meal = Meal.find(params[:id])
   end
+  
+  def destroy
+    @meal = Meal.find(params[:id])
+    @meal.destroy
+    flash[:danger] = "That meal was successfully deleted."
+    redirect_to meals_path
+  end
+  
   
   private
     def meal_params
