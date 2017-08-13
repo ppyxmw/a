@@ -1,27 +1,29 @@
 <%- model_class = Meal -%>
+
+<p>
+  <h3>My meals</h3>
+  <%= link_to t('.new', :default => t("Add a new meal")),
+            new_meal_path,
+            :class => 'btn btn-primary new-btn' %>
+<p>
 <% @meals.each do |meal| %>
   <div class="card">
     <section class="picture">
-      <%= image_tag(meal.image.url, size: "300x300") if meal.image %>
+      <%= image_tag(meal.chef.image.url, size: "300x300") if meal.image %>
     </section>
     <section class="post-links">
-      <a class="postid"><%= meal.chef.email %></a>
+      <a class="postid"><%= meal.chef.name %></a>
       <a class="submitter">4.5 stars</a>
     </section>
 	  <section class="description">
       <%= meal.description %>
     </section>
-    <%#= link_to t('.show', :default => t("helpers.links.show")),
-                meal_path(meal), :class => 'btn btn-default btn-xs' %>
-    <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                edit_meal_path(meal), :class => 'btn btn-default btn-xs' %>
     <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                 meal_path(meal),
                 :method => :delete,
                 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                :class => 'btn btn-xs btn-danger' %>
+                :class => 'btn btn-xs btn-danger delete-btn' %>
+    <%#= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_meal_path(meal), :class => 'btn btn-default btn-xs edit-btn' %>
   </div>
 <% end %>
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_meal_path,
-            :class => 'btn btn-primary' %>

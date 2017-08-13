@@ -49,10 +49,13 @@
   }
   
   .btn-danger:hover, .btn-danger:focus {
-    background-color: darken(#d9534f,20%) !important;
+    background-color: darken(#d9534f,15%) !important;
   }
   .btn-primary:hover, .btn-primary:focus {
-    background-color: darken(#428bca,20%) !important;
+    background-color: darken(#428bca,15%) !important;
+  }
+  .btn-success:hover, .btn-success:focus {
+    background-color: darken(#5cb85c,15%) !important;
   }
 }
 
@@ -101,10 +104,11 @@
   float: left;
   font-size: 13px;
   margin-left: 12px;
-  width: 75px;
-    line-height: 10px;
+  width: 195px;
+  line-height: 10px;
   padding-bottom: 7px;
-    color:#00a63f;
+  color:#00a63f;
+  padding-top: 3px;
 }
 
 .submitter {
@@ -112,10 +116,11 @@
   font-size: 13px;
   margin-right: 12px;
   text-align: right;
-  width: 175px;
+  width: 55px;
   line-height: 10px;
   padding-bottom: 7px;
   color:#00a63f;
+  padding-top: 3px;
 }
 
 .submitter:hover {
@@ -142,9 +147,9 @@
   padding: 0;
   text-transform: none;
   // font-family: Trebuchet MS;
-  height: 50px;
+  height: 64px;
   line-height: 16px;
-  margin: 20px 0px 2px 0px;
+  margin: 4px 0px 2px 0px;
   padding: 0 12px;
 }
 
@@ -162,4 +167,77 @@ body {
   // transparent-square-tiles
   // twinkle-twinkle
   background-attachment: fixed;
+}
+
+.delete-btn {
+  float: right; 
+  margin-right: 10px;
+}
+
+.logout-btn {
+  width: 78px;
+}
+
+.new-btn {
+  margin-top: 8px;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 26px;
+  float: right;
+  margin-right: 10px;
+  margin-top: -6px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: -1px;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .15s;
+  transition: .15s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .15s;
+  transition: .15s;
+}
+
+input:checked + .slider {
+  background-color: #5cb85c;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #00a63f;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
