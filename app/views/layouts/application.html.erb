@@ -67,7 +67,6 @@
             <!--<li class="col-md-1"> &nbsp; </li>-->
             <li class="col-md-3 logout"><%= link_to('Logout', destroy_chef_session_path,
                                         class: 'btn btn-xs btn-danger logout-btn', title: 'Logout', :method => :delete) %></li>
-            
           <% elsif current_customer %>
             <li class="col-md-8 user-name">
               <i class="fa fa-user"></i>
