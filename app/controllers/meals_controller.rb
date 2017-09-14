@@ -1,4 +1,5 @@
 class MealsController < ApplicationController
+  before_action :authenticate_chef!
   
   def new
     @meal = Meal.new
@@ -12,7 +13,6 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     @meal.chef = current_chef
-
     respond_to do |wants|
       if @meal.save
         flash[:notice] = 'Your meal was successfully created.'

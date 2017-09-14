@@ -1,0 +1,5 @@
+<% if current_customer.like?(meal) %>
+  <%= button_to "Unliked", unlike_path(meal_id: meal.id), remote: true, method: :delete  %>
+<% else %>
+  <%= button_to "Like", like_path(meal_id: meal.id), remote: true  %>
+<% end %>

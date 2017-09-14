@@ -1,0 +1,35 @@
+<% if current_customer.like?(meal) %>
+  <%#= button_to "unlike", unlike_path(meal_id: meal.id), remote: true, method: :delete, :id => "unlike2_#{meal.id}", :style => "display: none;" %>
+  <label class="switch" id="on_<%= meal.id %>" onclick="likeFunction(<%= meal.id %>)">
+    <input type="checkbox" checked>
+    <span class="slider round"></span>
+  </label>
+  <!--<label class="switch">-->
+  <!--  <%#= button_to "", like_path(meal_id: meal.id), remote: true, :id => "like_#{meal.id}", :style => "display: ;", :type =>"checkbox" %>-->
+  <!--  <span class="slider round"></span>-->
+  <!--</label>-->
+<% else %>
+<label class="switch" id="off_<%= meal.id %>" onclick="likeFunction(<%= meal.id %>)">
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
+  <!--<label class="switch">-->
+  <!--  <%#= button_to "", like_path(meal_id: meal.id), remote: true, :id => "like_#{meal.id}", :style => "display: ;", :type =>"checkbox" %>-->
+  <!--  <span class="slider round"></span>-->
+  <!--</label>-->
+<% end %>
+  <%#= button_to "like", like_path(meal_id: meal.id), remote: true, :id => "like_#{meal.id}", :style => "display: ;", :class => "slider switch round", :type =>"checkbox" %>
+  <%= button_to "like", like_path(meal_id: meal.id), remote: true, :id => "like_#{meal.id}", :style => "display: none;" %>
+
+<!--<label class="switch">-->
+  <%#= check_box_tag(true, class: "checkbox", type="submit" value="1" %>
+<!--  <span class="slider round"></span>-->
+<!--</label>-->
+
+<!--<button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">-->
+<!--  <div class="handle"></div>-->
+<!--</button>-->
+
+<!--<button type="button" class="btn btn-sm btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">-->
+<!--  <div class="handle"></div>-->
+<!--</button>-->

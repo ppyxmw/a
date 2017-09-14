@@ -3,8 +3,7 @@
   <h3>My meals</h3>
 <p>
   <%= link_to t('.new', :default => t("Add a new meal")),
-            new_meal_path,
-            :class => 'btn btn-primary new-btn' %>
+            new_meal_path, :class => 'btn btn-primary new-btn' %>
 <p>
 <% @meals.each do |meal| %>
   <div class="card">

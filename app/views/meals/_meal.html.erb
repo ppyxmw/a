@@ -13,42 +13,8 @@
     <section class="description" id="chefdescription<%= meal.id %>" style="display:none" >
       <%= meal.chef.description %>
     </section>
-    <!--<section class="post-links">-->
-    <!--  <a class="postid" id="chefname<%= meal.id %>"><%= meal.chef.name %></a>-->
-    <!--  <a class="postid" style="display:none;" onclick="toggleFunction(<%= meal.id %>)" id="backtomeal<%= meal.id %>">View Meal</a>-->
-    <!--  <a class="submitter">4.5 stars</a>-->
-    <!--</section>-->
-    <label class="switch">
-      <input type="checkbox">
-      <span class="slider round"></span>
-    </label>
+    <%= div_for meal do |meal| %>
+      <%= render :partial => 'customer_meals/button', locals: { meal: meal }%>
+    <% end %>
   </div>
 <% end %>
-
-<script>
-function toggleFunction(item) {
-  
-    var mealphoto = document.getElementById("mealphoto" + item);
-    var chefphoto = document.getElementById("chefphoto" + item);
-    var mealdescription = document.getElementById("mealdescription" + item);
-    var chefdescription = document.getElementById("chefdescription" + item);
-    var backtomeal = document.getElementById("backtomeal" + item);
-    var chefname = document.getElementById("chefname" + item);
-    
-    if (mealphoto.style.display === 'none') {
-        mealphoto.style.display = 'block';
-        chefphoto.style.display = 'none';
-        mealdescription.style.display = 'block';
-        chefdescription.style.display = 'none';
-        backtomeal.style.display = 'none';
-        chefname.style.display = 'block';
-    } else {
-        mealphoto.style.display = 'none';
-        chefphoto.style.display = 'block';
-        mealdescription.style.display = 'none';
-        chefdescription.style.display = 'block';
-        backtomeal.style.display = 'block';
-        chefname.style.display = 'none';
-    }
-}
-</script>
