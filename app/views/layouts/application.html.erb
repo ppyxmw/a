@@ -51,32 +51,41 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to 'AppName', root_path, class: "navbar-brand" %>
+        <%= link_to 'AppName', root_path, class: "navbar-brand", id: "brandname"  %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "My detials", new_meal_path  %></li>
+          <ul class="nav navbar-nav" id="navbar-list">
+            <% if current_chef %>
+            <li><%= link_to "My detials", edit_chef_registration_path  %></li>
             <li><%= link_to "My meals", meals_path  %></li>
+            <% end %>
+            <% if current_customer %>
+            <li><%= link_to "My detials", edit_customer_registration_path  %></li>
             <li><h1 id="counter" ><%= current_customer.customer_meals.count %></h1></li>
+            <% end %>
           </ul>
           <ul class="nav navbar-right col-md-4">
           <% if current_chef %>
-            <li class="col-md-8 user-name">
-              <i class="fa fa-user"></i>
-              <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_chef.email, length: 25)).html_safe,
-                                                          edit_chef_registration_path, title: 'Edit Profile' %>
-            </li>
+            <!--<li class="col-md-8 user-name">-->
+            <!--  <i class="fa fa-user"></i>-->
+            <!--  <%#= link_to ('<i class="fa fa-user"></i> ' + truncate(current_chef.email, length: 25)).html_safe,-->
+            <!--                                              edit_chef_registration_path, title: 'Edit Profile' %>-->
+            <!--</li>-->
             <!--<li class="col-md-1"> &nbsp; </li>-->
-            <li class="col-md-3 logout"><%= link_to('Logout', destroy_chef_session_path,
-                                        class: 'btn btn-xs btn-danger logout-btn', title: 'Logout', :method => :delete) %></li>
+            <li class="col-md-3 logout pull-right">
+              <%= link_to('Logout', destroy_chef_session_path,
+                  class: 'btn btn-xs btn-danger logout-btn', title: 'Logout', :method => :delete) %>
+            </li>
           <% elsif current_customer %>
-            <li class="col-md-8 user-name">
-              <i class="fa fa-user"></i>
-              <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_customer.email, length: 25)).html_safe,
-                                                          edit_customer_registration_path, title: 'Edit Profile' %>
-            </li>
+            <!--<li class="col-md-8 user-name">-->
+            <!--  <i class="fa fa-user"></i>-->
+            <!--  <%#= link_to ('<i class="fa fa-user"></i> ' + truncate(current_customer.email, length: 25)).html_safe,-->
+            <!--                                              edit_customer_registration_path, title: 'Edit Profile' %>-->
+            <!--</li>-->
             <!--<li class="col-md-1"> &nbsp; </li>-->
-            <li class="col-md-3 logout"><%= link_to('Logout', destroy_customer_session_path,
-                                        class: 'btn btn-xs btn-danger logout-btn', title: 'Logout', :method => :delete) %></li>
+            <li class="col-md-3 logout pull-right">
+              <%= link_to('Logout', destroy_customer_session_path,
+                  class: 'btn btn-xs btn-danger logout-btn', title: 'Logout', :method => :delete) %>
+            </li>
                                         
           <% else %>
             <li class="col-md-4 pull-right">
