@@ -6,76 +6,100 @@
                     <div class="board-inner">
                     <ul class="nav nav-tabs" id="myTab">
                     <div class="liner"></div>
-                     <li class="active">
+                     <li class="active padder">
                      <a href="#home" data-toggle="tab" title="welcome">
                       <span class="round-tabs one">
-                              <i class="glyphicon glyphicon-home"></i>
+                        <p>#1</p>
+                              <!--<i class="glyphicon glyphicon-home"></i>-->
                       </span> 
                   </a></li>
 
                   <li><a href="#profile" data-toggle="tab" title="profile">
                      <span class="round-tabs two">
-                         <i class="glyphicon glyphicon-user"></i>
+                         <p>#2</p>
                      </span> 
            </a>
                  </li>
                  <li><a href="#messages" data-toggle="tab" title="bootsnipp goodies">
                      <span class="round-tabs three">
-                          <i class="glyphicon glyphicon-gift"></i>
+                          <p>#3</p>
                      </span> </a>
                      </li>
 
-                     <li><a href="#settings" data-toggle="tab" title="blah blah">
-                         <span class="round-tabs four">
-                              <i class="glyphicon glyphicon-comment"></i>
-                         </span> 
-                     </a></li>
+                     <!--<li><a href="#settings" data-toggle="tab" title="blah blah">-->
+                     <!--    <span class="round-tabs four">-->
+                     <!--         <i class="glyphicon glyphicon-info-sign"></i>-->
+                     <!--    </span> -->
+                     <!--</a></li>-->
 
-                     <li><a href="#doner" data-toggle="tab" title="completed">
-                         <span class="round-tabs five">
-                              <i class="glyphicon glyphicon-ok"></i>
-                         </span> </a>
-                     </li>
+                     <!--<li><a href="#doner" data-toggle="tab" title="completed">-->
+                     <!--    <span class="round-tabs five">-->
+                     <!--         <i class="glyphicon glyphicon-fire"></i>-->
+                     <!--    </span> </a>-->
+                     <!--</li>-->
                      
                      </ul></div>
 
                      <div class="tab-content">
                       <div class="tab-pane fade in active" id="home">
-                          <h3 class="head text-center">You are a winner:</span></h3>
+                          <h3 class="head text-center">A Fresh Treat</span></h3>
 
                           <p class="narrow text-center">
-                            Have your lunch & dinner delivered to your office daily. <br>
+                            Enjoy freshly made lunch & dinner delivered to your office daily. <br>
                             <!--No planning or stressing, it's automatic.<br>-->
-                            Fresh and stress-free.<br>
-                            £5.99 per meal
+                            <!--Fresh and stress-free.<br>-->
+                            £5.99 per meal includes delivery.
                           <!--    Have freshly prepared meals that you like, automatically delivered to your office daily. No planning and no stress for your lunch and dinner.-->
                           </p>
                           <p></p><br>
                           
                           <p class="text-center">
-                 <%= link_to 'Join here', new_customer_registration_path, class: "btnn btn-outline-rounded btn-success" %>
-                </p>
+                          <%= link_to new_customer_registration_path, class: "btnn btn-outline-rounded btn-success" do %>
+                            Join today <i style="margin-left:10px;" class="glyphicon glyphicon-send"></i>
+                          <% end %>
+                          </p>
                       </div>
                       <div class="tab-pane fade" id="profile">
-                          <h3 class="head text-center">Create a Bootsnipp<sup>™</sup> Profile</h3>
+                          <h3 class="head text-center">Switch
+                          <span class="form-group">
+                            <label class="switch text-switch" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                              <input type="checkbox" checked >
+                              <span class="slider round">
+                                <span class="on-text text-switch-on">ON</span>
+                                <span class="off-text">Off</span>
+                              </span>
+                            </label>
+                          </span>
+                          <span class="other-text">Meals You 
+                          <span id="collapseOne" aria-expanded="false" class="collapse" style="color: red;">Don't </span>Like</span></h3>
+
                           <p class="narrow text-center">
-                              Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
+
+                            We'll deliver you two meals from your selection daily by noon.<br>
+                            <!--You'll get two meals delivered to you daily before noon. -->
+                            <!--Each day by noon we'll deliver you two meals from your selection.-->
+                            Simply reheat at lunch or dinner.<br>
                           </p>
-                          
+                          <p></p></br>
                           <p class="text-center">
-                    <a href="" class="btnn btn-success btn-outline-rounded green"> create your profile <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
-                </p>
-                          
+                          <%= link_to new_customer_registration_path, class: "btnn btn-outline-rounded btn-success" do %>
+                            Let's go <i style="margin-left:10px;" class="glyphicon glyphicon-send"></i>
+                          <% end %>
+                          </p>
                       </div>
                       <div class="tab-pane fade" id="messages">
-                          <h3 class="head text-center">Bootsnipp goodies</h3>
+                          <h3 class="head text-center">That's It</h3>
                           <p class="narrow text-center">
-                              Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-                          </p>
-                          
+                            <!--We'll automatically deliver your meals daily.</br>-->
+                            Just keep your account topped up & delivey details up-to-date.  <br>
+                            You can pause delivery and change your preferences anytime the day before. <br>
+
+                          </p></br>
                           <p class="text-center">
-                    <a href="" class="btnn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
-                </p>
+                          <%= link_to new_customer_registration_path, class: "btnn btn-outline-rounded btn-success" do %>
+                            Click here <i style="margin-left:10px;" class="glyphicon glyphicon-send"></i>
+                          <% end %>
+                          </p>
                       </div>
                       <div class="tab-pane fade" id="settings">
                           <h3 class="head text-center">Drop comments!</h3>
