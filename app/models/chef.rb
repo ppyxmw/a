@@ -5,5 +5,6 @@ class Chef < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :meals
   mount_uploader :image, ImageUploader
+  validates :description, presence: true, length: { minimum: 50, maximum: 140 }
     
 end

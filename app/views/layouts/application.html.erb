@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "AppName" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Panzfree" %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
@@ -29,43 +29,32 @@
                   class: 'btn btn-xs btn-danger logout-btn', title: 'Logout', :method => :delete) %>
                 </li>
               <% elsif current_customer %>
-
-                <!--<li class="tabs tab2"><h1 id="counter" ><%#= current_customer.customer_meals.count %></h3></li>-->
                 <li class="counter"><p id="counter"><%= current_customer.customer_meals.count %></p><span>My Meals</span></li>
-                
-                <!--<li class="tabs tab3"><h4 id="balance">£10.69</h4><p class="balance">Balance</p></li>-->
                 <li class="dropdown tabs tab1">
-                  
                   <a href="#" id="tab1link" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     <!--<p id="user"><%#= current_customer.email[0..5] %> <span class="caret"></span></p>-->
                     <p  class="balance" >£12.45</p>
                     <p id="user">My Balance <span class="caret"></span></p>
                   </a>
                   <ul class="dropdown-menu" id="login-list">
+                                        <!--<p id="user"><%#= current_customer.email[0..5] %> <span class="caret"></span></p>-->
                     <li><a>Top-up</a></li>
                     <li><%= link_to "Edit setting", edit_customer_registration_path  %></li>
                     <li role="separator" class="divider"></li>
-                    <li><%= link_to "Log Out", destroy_customer_session_path, :method => :delete %></li>
+                    <!--<li><a><%#= current_customer.email[0..12] %>...</a> </li>-->
+
+                    <li><%= link_to "#{current_customer.email[0..6]}... Log Out", destroy_customer_session_path, :method => :delete %></li>
                   </ul>
                 </li>
-                
-                
-                
-                
-                
-                <!--<li class=" logout pull-right">-->
-                  <%#= link_to('Logout', destroy_customer_session_path,
-                  class: 'btn btn-xs btn-danger logout-btn', title: 'Logout', :method => :delete) %>
-                <!--</li>-->
               <% else %>
                 <li class="dropdown">
-                  <a href="#" id="login" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+                  <a href="#" id="login" class="dropdown-toggle tabs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
                   <ul class="dropdown-menu" id="login-list">
                     <li><%= link_to 'Customer Login', new_customer_session_path %></li>
                     <li role="separator" class="divider"></li>
-                    <li><%= link_to 'Customer Registration', new_customer_registration_path %></li>
-                    <li><%= link_to 'Chef Registration', new_chef_registration_path %></li>
                     <li><%= link_to 'Chef Login', new_chef_session_path %></li>
+                    <li><%= link_to 'Chef Registration', new_chef_registration_path %></li>
+                    <li><%= link_to 'Customer Registration', new_customer_registration_path %></li>
                   </ul>
                 </li>
               <% end %>
@@ -82,7 +71,7 @@
         </div>
       </div><!--/row-->
       <footer>
-        <p>&copy; Company 2017</p>
+        <p>&copy; Panzfree 2017 | Contact | How It Works | Terms | Chefs | FAQs</p>
       </footer>
     </div> <!-- /container -->
   </body>
