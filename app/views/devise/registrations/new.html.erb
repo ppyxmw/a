@@ -9,7 +9,7 @@
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, class: 'form-control' %>
       </div>
-      <% if(current_page?(chef_registration_path)) %>
+      <% if(current_page?(new_chef_registration_path)) %>
         <div class="form-group">
           <%= f.label :name %>
           <%= f.text_field :name, class: 'form-control' %>
