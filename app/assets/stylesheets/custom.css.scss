@@ -20,13 +20,13 @@
 }
 
 .navbar-default {
-  // background-color: #f8f8f8;
-  // border-color: #e7e7e7;
+  background-color: #2b2828;
+  border-color: #000000;
   
   // background: #808285;
   // border-bottom: 2px solid #6c6d70;
   
-  background-color: #fff;
+  // background-color: #fff;
   // border-bottom: 2px solid #6c6d70;
   // box-shadow: 0 1px 5px 0 rgba(41,85,115,.21);
   height: 60px;
@@ -87,17 +87,19 @@
 
 #brandname {
     margin-top: -5px;
-    color: #e8625e; // red
+    // color: #e8625e; // red
     // color: #febe29; //yellow
     // color: #57ad57; // green
+    color: #fff;
 
 
 }
 
 #brandname > span  {
-    color: #57ad57; // green
+    // color: #57ad57; // green
     // color: #febe29; // yellow
     // color: #e8625e; // red
+    color: #fff;
 }
 
 #brandname > span > span {
@@ -201,8 +203,8 @@
 }
 
 body {
-  background: #e2e1dd url(//static.foodgawker.com/wp-content/themes/Foodgawker/gawkerverse-parent/assets/img/main-texture-retina_6-7-13.jpg?ver=4);
-  background-size: 200px 200px;
+  // background: #e2e1dd url(//static.foodgawker.com/wp-content/themes/Foodgawker/gawkerverse-parent/assets/img/main-texture-retina_6-7-13.jpg?ver=4);
+  // background-size: 200px 200px;
   // background-image: url(https://www.transparenttextures.com/patterns/twinkle-twinkle.png);
   // light-wool
   // mirrored-squares
@@ -213,6 +215,7 @@ body {
   // twinkle-twinkle
   // background-attachment: fixed;
   // background-color: #efefe9;
+  background-color: #cccaca;
 }
 
 .delete-btn {
@@ -696,7 +699,7 @@ input[type=checkbox]:checked ~ label ~ .content {
 
 
 .tabs:hover {
-  background-color: #e7e7e7 !important;
+  background-color: #fff !important;
 }
 
 #login {
@@ -749,4 +752,8 @@ input[type=checkbox]:checked ~ label ~ .content {
 footer > p {
   text-align: center;
   margin-top: 30px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #fff;
 }

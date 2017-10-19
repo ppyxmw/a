@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Panzfree" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Lunchize" %></title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
@@ -17,7 +17,8 @@
     <div class="navbar navbar-default navbar-fixed-top col-md-12">
       <div class="container">
         <%= link_to root_path, class: "navbar-brand col-md-3", id: "" do %>
-          <h2 id="brandname">Panz<span id="second"><span></span>free</span></h2>
+          <!--<h2 id="brandname">Lunchize<img src="http://www.unc.edu/~jphuss/COMP101/lab16/dice.png" height="38" width="38"><span id="second"><span></span></span></h2>-->
+          <h2 id="brandname">Lunchize<span id="second"><span></span></span></h2>
         <% end %>
         <div class="col-md-8 pull-right">
             <ul class="nav navbar-nav navbar-right" id="navbar-list">
