@@ -757,3 +757,9 @@ footer > p {
 .navbar-default .navbar-nav>li>a {
   color: #fff;
 }
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1216px;
+  }
+}
