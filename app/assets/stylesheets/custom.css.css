@@ -50,6 +50,10 @@
 .navbar-brand {
   margin-top: 3px; }
 
+#brandname {
+  font-family: 'Fondamento', cursive;
+}
+
 #indexwrapper {
   clear: both;
   margin: 0;
