@@ -10,15 +10,4 @@ class CustomerMealsController < ApplicationController
       current_customer.like(@meal)
     end
   end
-  
-  # def unlike
-  #   if current_customer.like?(@meal)
-  #     current_customer.unlike(@meal)
-  #   end
-  # end
-
-  # private
-  # def set_meal
-  #   @meal = Meal.find(params[:meal_id])
-  # end
 end

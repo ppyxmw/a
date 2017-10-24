@@ -1,0 +1,47 @@
+<div class="container">
+  <h1>Plans</h1>
+  <p><%= @mealplans.size %> plans.</p>      
+</div>
+<% if @mealplans.size > 0 then %>
+ <div class="container">
+        
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <!--<th>Title</th>-->
+        <th>Monday</th>
+        <th>Tuesday</th>
+	<th>Wednesday</th>
+	<th>Thursday</th>
+	<th>Friday</th>
+	<th>Saturday</th>
+	<th>Sunday</th>
+	<th>Status</th>
+	<th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% for @mealplan in @mealplans do %>
+      <tr>
+        <!--<td><%#=@mealplan.title%></td>-->
+        <td><%=@mealplan.monday%></td>
+        <td><%=@mealplan.tuesday%></td>
+	      <td><%=@mealplan.wednesday%></td>
+        <td><%=@mealplan.thursday%></td>
+        <td><%=@mealplan.friday%></td>
+	      <td><%=@mealplan.saturday%></td>
+        <td><%=@mealplan.sunday%></td>
+        <td><%=@mealplan.state%></td>
+        <td><%= link_to "Edit plan", edit_mealplan_path(@mealplan.id), :class => 'btn btn-primary btn-sm'%>&nbsp;
+	<%= link_to "Delete plan", delete_mealplan_path(@mealplan.id), :class => 'btn btn-danger btn-sm'%></td>
+      </tr>
+     <% end %>
+    </tbody>
+  </table>
+</div>
+<% end %>
+<div class="clear"></div>
+<div class="container">
+  <%= link_to "Add plan", new_mealplan_path, :class => 'btn btn-primary'%>
+</div>
+<div class="clear"></div>

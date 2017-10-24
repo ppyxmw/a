@@ -1,0 +1,50 @@
+<div class="container">
+ <h1>New meal plan</h1>
+
+<%= form_for @mealplan, :html => {:class => 'form-horizontal'}, :method => 'POST', url: :save_mealplan do |f| %>
+ <div class="form-group">
+  <%= f.label :monday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.select :monday, [['0 meals','0'],['1 meal','1'],['2 meals','2'],['3 meals','3'],['4 meals','4'],['5 meals','5'],['6 meals','6']] %>
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :tuesday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.select :tuesday, [['0 meals','0'],['1 meal','1'],['2 meals','2'],['3 meals','3'],['4 meals','4'],['5 meals','5'],['6 meals','6']] %>
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :wednesday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%#= f.text_field :wednesday, :class => 'form-control' %> 
+    <%= f.select :wednesday, [['0 meals','0'],['1 meal','1'],['2 meals','2'],['3 meals','3'],['4 meals','4'],['5 meals','5'],['6 meals','6']] %>
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :thursday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.select :thursday, [['0 meals','0'],['1 meal','1'],['2 meals','2'],['3 meals','3'],['4 meals','4'],['5 meals','5'],['6 meals','6']] %>
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :friday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.select :friday, [['0 meals','0'],['1 meal','1'],['2 meals','2'],['3 meals','3'],['4 meals','4'],['5 meals','5'],['6 meals','6']] %>
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :saturday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.select :saturday, [['0 meals','0'],['1 meal','1'],['2 meals','2'],['3 meals','3'],['4 meals','4'],['5 meals','5'],['6 meals','6']] %>
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :sunday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.select :sunday, [['0 meals','0'],['1 meal','1'],['2 meals','2'],['3 meals','3'],['4 meals','4'],['5 meals','5'],['6 meals','6']] %>
+  </div>
+ </div>
+  <%= f.submit "Save plan", :class => 'btn btn-success' %>&nbsp;&nbsp;<%= link_to "All plans", mealplans_path, :class => 'btn btn-default'%>
+ <% end %>							
+</div>
