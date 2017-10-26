@@ -1,0 +1,70 @@
+<div class="card" id="settings">
+  <h4 class="settings_heading">Delivery Settings</h4>
+  <%= form_for @plan, :html => {:class => 'form-horizontal'}, :method => 'POST', url: :update_mymealplan do |f| %>
+    <%= f.hidden_field :id, :value => @plan.id %>
+    <div class="form-group">
+      <%= f.label :mon, :class => 'control-label col-sm-2' %>
+      <div class="col-sm-1">
+        <%= f.select :monday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.monday %>
+      </div>
+      <div>
+        <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :tue, :class => 'control-label col-sm-2' %>
+      <div class="col-sm-1">
+        <%= f.select :tuesday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.tuesday %>
+      </div>
+      <div>
+        <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :wed, :class => 'control-label col-sm-2' %>
+      <div class="col-sm-1">
+        <%= f.select :wednesday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.wednesday %>
+      </div>
+      <div>
+        <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :thu, :class => 'control-label col-sm-2' %>
+      <div class="col-sm-1">
+        <%= f.select :thursday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.thursday %>
+      </div>
+      <div>
+        <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :fri, :class => 'control-label col-sm-2' %>
+      <div class="col-sm-1">
+        <%= f.select :friday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.friday %>
+      </div>
+      <div>
+        <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :sat, :class => 'control-label col-sm-2' %>
+      <div class="col-sm-1">
+        <%= f.select :saturday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.saturday %>
+      </div>
+      <div>
+        <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :sun, :class => 'control-label col-sm-2' %>
+      <div class="col-sm-1">
+        <%= f.select :sunday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.sunday %>
+      </div>
+      <div>
+        <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+      </div>
+    </div>      
+    <%= f.submit "Update", :class => 'btn btn-primary settings_button' %>
+  <% end %>
+</div>

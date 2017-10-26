@@ -761,3 +761,43 @@ footer > p {
     width: 1216px;
   }
 }
+
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    padding-top: 0px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .form-horizontal .control-label {
+    display: inherit; 
+  }
+  .form-group {
+    display: flex;
+    float: right;
+    padding-right: 12px;
+  }
+  .form-group {
+    margin-bottom: 11px;
+  }
+}
+
+.settings_heading {
+  margin-top: 3px;
+  margin-bottom: 20px;
+}
+
+    
+
+#settings {
+  padding: 20px;
+}
+
+#mealplan_tuesday_address {
+  margin-left: 21px;
+}
+
+.settings_button {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}

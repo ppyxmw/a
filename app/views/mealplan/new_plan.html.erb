@@ -1,0 +1,55 @@
+<div class="container">
+ <h1>New meal plan</h1>
+
+<%= form_for @mealplan, :html => {:class => 'form-horizontal'}, :method => 'POST', url: :save_plan do |f| %>
+ <div class="form-group">
+  <%= f.label :title, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.text_field :title, :class => 'form-control' %> 
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :monday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.text_field :monday, :class => 'form-control' %> 
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :tuesday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.text_field :tuesday, :class => 'form-control' %> 
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :wednesday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.text_field :wednesday, :class => 'form-control' %> 
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :thursday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.text_field :thursday, :class => 'form-control' %> 
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :friday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.text_field :friday, :class => 'form-control' %> 
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :saturday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.text_field :saturday, :class => 'form-control' %> 
+  </div>
+ </div>
+ <div class="form-group">
+  <%= f.label :sunday, :class => 'control-label col-sm-2' %>
+  <div class="col-sm-1">
+    <%= f.text_field :sunday, :class => 'form-control' %> 
+  </div>
+ </div>
+  <%= f.submit "Save plan", :class => 'btn btn-success' %>&nbsp;&nbsp;<%= link_to "All plans", plans_path, :class => 'btn btn-default'%>
+ <% end %>							
+</div>

@@ -8,12 +8,12 @@
 <% @meals.each do |meal| %>
   <div class="card">
     <section class="picture">
-      <%= image_tag(meal.chef.image.url, size: "300x300") if meal.image %>
+      <%= image_tag(meal.image.url, size: "300x300") if meal.image %>
     </section>
-    <section class="post-links">
-      <a class="postid"><%= meal.chef.name %></a>
-      <a class="submitter">4.5 stars</a>
-    </section>
+    <!--<section class="post-links">-->
+      <!--<a class="postid"><%#= meal.chef.name %></a>-->
+    <!--  <a class="submitter">4.5 stars</a>-->
+    <!--</section>-->
 	  <section class="description">
       <%= meal.description %>
     </section>

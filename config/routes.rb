@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   
   devise_for :chefs, :controllers => { :registrations => "chef/registrations" }
   root 'welcome#index'
+  
+  get 'mymealplan', to: 'mealplan#show', as: 'mymealplan'
+  post 'mymealplan/update', to: 'mealplan#update', as: 'update_mymealplan'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
 end

@@ -4,7 +4,7 @@ class Meal < ActiveRecord::Base
   has_many :customers, through: :customer_meals
   
   mount_uploader :image, ImageUploader
-  validates :description, presence: true, length: { minimum: 10, maximum: 140 }
+  validates :description, presence: true, length: { minimum: 30, maximum: 125 }
   validates :chef_id, presence: true
   validates :image, presence: true
   validate :image_size
