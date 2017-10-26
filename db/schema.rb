@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023111149) do
+ActiveRecord::Schema.define(version: 20171024204418) do
 
   create_table "chefs", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -66,6 +66,13 @@ ActiveRecord::Schema.define(version: 20171023111149) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "monday", default: 0
+    t.integer "tuesday", default: 0
+    t.integer "wednesday", default: 0
+    t.integer "thursday", default: 0
+    t.integer "friday", default: 0
+    t.integer "saturday", default: 0
+    t.integer "sunday", default: 0
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end

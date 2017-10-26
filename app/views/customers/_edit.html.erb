@@ -1,0 +1,9 @@
+<div class="card">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="field">
+      <%= f.label :monday %>
+      <%= f.select :monday, [['Zero', 0], ['One', 1], ['Two', 2], ['Three', 3], ['Four', 4] , ['Five ', 5]], :selected => current_customer.monday %> 
+    </div>
+    <%= f.submit t('.save', default: 'Save'), class: 'btn btn-primary' %>
+  <% end %>
+</div>

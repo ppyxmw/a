@@ -1,30 +1,30 @@
-<% if !current_chef and !current_customer %>
-<div class="container">
-            <div class="row row2">
-                <div class="board">
+<!--<% if !current_chef and !current_customer %>-->
+<!--<div class="container">-->
+<!--            <div class="row row2">-->
+<!--                <div class="board">-->
                     <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
-                    <div class="board-inner">
-                    <ul class="nav nav-tabs" id="myTab">
-                    <div class="liner"></div>
-                     <li class="active padder">
-                     <a href="#home" data-toggle="tab" title="welcome">
-                      <span class="round-tabs one">
-                        <p>#1</p>
+<!--                    <div class="board-inner">-->
+<!--                    <ul class="nav nav-tabs" id="myTab">-->
+<!--                    <div class="liner"></div>-->
+<!--                     <li class="active padder">-->
+<!--                     <a href="#home" data-toggle="tab" title="welcome">-->
+<!--                      <span class="round-tabs one">-->
+<!--                        <p>#1</p>-->
                               <!--<i class="glyphicon glyphicon-home"></i>-->
-                      </span> 
-                  </a></li>
+<!--                      </span> -->
+<!--                  </a></li>-->
 
-                  <li><a href="#profile" data-toggle="tab" title="profile">
-                     <span class="round-tabs two">
-                         <p>#2</p>
-                     </span> 
-           </a>
-                 </li>
-                 <li><a href="#messages" data-toggle="tab" title="bootsnipp goodies">
-                     <span class="round-tabs three">
-                          <p>#3</p>
-                     </span> </a>
-                     </li>
+<!--                  <li><a href="#profile" data-toggle="tab" title="profile">-->
+<!--                     <span class="round-tabs two">-->
+<!--                         <p>#2</p>-->
+<!--                     </span> -->
+<!--           </a>-->
+<!--                 </li>-->
+<!--                 <li><a href="#messages" data-toggle="tab" title="bootsnipp goodies">-->
+<!--                     <span class="round-tabs three">-->
+<!--                          <p>#3</p>-->
+<!--                     </span> </a>-->
+<!--                     </li>-->
 
                      <!--<li><a href="#settings" data-toggle="tab" title="blah blah">-->
                      <!--    <span class="round-tabs four">-->
@@ -38,94 +38,104 @@
                      <!--    </span> </a>-->
                      <!--</li>-->
                      
-                     </ul></div>
+<!--                     </ul></div>-->
 
-                     <div class="tab-content">
-                      <div class="tab-pane fade in active" id="home">
-                          <h3 class="head text-center">A Fresh Treat</span></h3>
+<!--                     <div class="tab-content">-->
+<!--                      <div class="tab-pane fade in active" id="home">-->
+<!--                          <h3 class="head text-center">A Fresh Treat</span></h3>-->
 
-                          <p class="narrow text-center">
-                            Enjoy freshly made lunch & dinner delivered to your office daily. <br>
+<!--                          <p class="narrow text-center">-->
+<!--                            Enjoy freshly made lunch & dinner delivered to your office daily. <br>-->
                             <!--No planning or stressing, it's automatic.<br>-->
                             <!--Fresh and stress-free.<br>-->
-                            £5.99 per meal includes delivery.
+<!--                            £5.99 per meal includes delivery.-->
                           <!--    Have freshly prepared meals that you like, automatically delivered to your office daily. No planning and no stress for your lunch and dinner.-->
-                          </p>
-                          <p></p><br>
+<!--                          </p>-->
+<!--                          <p></p><br>-->
                           
-                          <p class="text-center">
-                          <%= link_to new_customer_registration_path, class: "btnn btn-outline-rounded btn-success" do %>
-                            Join today <i style="margin-left:10px;" class="glyphicon glyphicon-send"></i>
-                          <% end %>
-                          </p>
-                      </div>
-                      <div class="tab-pane fade" id="profile">
-                          <h3 class="head text-center">Switch
-                          <span class="form-group">
-                            <label class="switch text-switch" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                              <input type="checkbox" checked >
-                              <span class="slider round">
-                                <span class="on-text text-switch-on">ON</span>
-                                <span class="off-text">Off</span>
-                              </span>
-                            </label>
-                          </span>
-                          <span class="other-text">Meals You 
-                          <span id="collapseOne" aria-expanded="false" class="collapse" style="color: red;">Don't </span>Like</span></h3>
+<!--                          <p class="text-center">-->
+<!--                          <%= link_to new_customer_registration_path, class: "btnn btn-outline-rounded btn-success" do %>-->
+<!--                            Join today <i style="margin-left:10px;" class="glyphicon glyphicon-send"></i>-->
+<!--                          <% end %>-->
+<!--                          </p>-->
+<!--                      </div>-->
+<!--                      <div class="tab-pane fade" id="profile">-->
+<!--                          <h3 class="head text-center">Switch-->
+<!--                          <span class="form-group">-->
+<!--                            <label class="switch text-switch" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">-->
+<!--                              <input type="checkbox" checked >-->
+<!--                              <span class="slider round">-->
+<!--                                <span class="on-text text-switch-on">ON</span>-->
+<!--                                <span class="off-text">Off</span>-->
+<!--                              </span>-->
+<!--                            </label>-->
+<!--                          </span>-->
+<!--                          <span class="other-text">Meals You -->
+<!--                          <span id="collapseOne" aria-expanded="false" class="collapse" style="color: red;">Don't </span>Like</span></h3>-->
 
-                          <p class="narrow text-center">
+<!--                          <p class="narrow text-center">-->
 
-                            We'll deliver you two meals from your selection daily by noon.<br>
+<!--                            We'll deliver you two meals from your selection daily by noon.<br>-->
                             <!--You'll get two meals delivered to you daily before noon. -->
                             <!--Each day by noon we'll deliver you two meals from your selection.-->
-                            Simply reheat at lunch or dinner.<br>
-                          </p>
-                          <p></p></br>
-                          <p class="text-center">
-                          <%= link_to new_customer_registration_path, class: "btnn btn-outline-rounded btn-success" do %>
-                            Let's go <i style="margin-left:10px;" class="glyphicon glyphicon-send"></i>
-                          <% end %>
-                          </p>
-                      </div>
-                      <div class="tab-pane fade" id="messages">
-                          <h3 class="head text-center">That's It</h3>
-                          <p class="narrow text-center">
+<!--                            Simply reheat at lunch or dinner.<br>-->
+<!--                          </p>-->
+<!--                          <p></p></br>-->
+<!--                          <p class="text-center">-->
+<!--                          <%= link_to new_customer_registration_path, class: "btnn btn-outline-rounded btn-success" do %>-->
+<!--                            Let's go <i style="margin-left:10px;" class="glyphicon glyphicon-send"></i>-->
+<!--                          <% end %>-->
+<!--                          </p>-->
+<!--                      </div>-->
+<!--                      <div class="tab-pane fade" id="messages">-->
+<!--                          <h3 class="head text-center">That's It</h3>-->
+<!--                          <p class="narrow text-center">-->
                             <!--We'll automatically deliver your meals daily.</br>-->
-                            Just keep your account topped up & delivey details up-to-date.  <br>
-                            You can pause delivery and change your preferences anytime the day before. <br>
+<!--                            Just keep your account topped up & delivey details up-to-date.  <br>-->
+<!--                            You can pause delivery and change your preferences anytime the day before. <br>-->
 
-                          </p></br>
-                          <p class="text-center">
-                          <%= link_to new_customer_registration_path, class: "btnn btn-outline-rounded btn-success" do %>
-                            Click here <i style="margin-left:10px;" class="glyphicon glyphicon-send"></i>
-                          <% end %>
-                          </p>
-                      </div>
-                      <div class="tab-pane fade" id="settings">
-                          <h3 class="head text-center">Drop comments!</h3>
-                          <p class="narrow text-center">
-                              Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-                          </p>
+<!--                          </p></br>-->
+<!--                          <p class="text-center">-->
+<!--                          <%= link_to new_customer_registration_path, class: "btnn btn-outline-rounded btn-success" do %>-->
+<!--                            Click here <i style="margin-left:10px;" class="glyphicon glyphicon-send"></i>-->
+<!--                          <% end %>-->
+<!--                          </p>-->
+<!--                      </div>-->
+<!--                      <div class="tab-pane fade" id="settings">-->
+<!--                          <h3 class="head text-center">Drop comments!</h3>-->
+<!--                          <p class="narrow text-center">-->
+<!--                              Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.-->
+<!--                          </p>-->
                           
-                          <p class="text-center">
-                    <a href="" class="btnn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
-                </p>
-                      </div>
-                      <div class="tab-pane fade" id="doner">
-  <div class="text-center">
-    <i class="img-intro icon-checkmark-circle"></i>
-</div>
-<h3 class="head text-center">thanks for staying tuned! <span style="color:#f48260;">♥</span> Bootstrap</h3>
-<p class="narrow text-center">
-  Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-</p>
-</div>
-<div class="clearfix"></div>
-</div>
+<!--                          <p class="text-center">-->
+<!--                    <a href="" class="btnn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>-->
+<!--                </p>-->
+<!--                      </div>-->
+<!--                      <div class="tab-pane fade" id="doner">-->
+<!--  <div class="text-center">-->
+<!--    <i class="img-intro icon-checkmark-circle"></i>-->
+<!--</div>-->
+<!--<h3 class="head text-center">thanks for staying tuned! <span style="color:#f48260;">♥</span> Bootstrap</h3>-->
+<!--<p class="narrow text-center">-->
+<!--  Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.-->
+<!--</p>-->
+<!--</div>-->
+<!--<div class="clearfix"></div>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<% end %>-->
+<!--<div class="card" id="card">-->
+<!--  <h5>My delivery settings</h5>-->
+<!--</div>-->
+<div id="settings">
+  <p>For people who do not like wasting time!</p>
+  <p>£5.99 per meal. Free delivery. Freshly prepared.</p>
+  
 
 </div>
-</div>
-</div>
-<% end %>
+
 
 <%= render :partial => 'meals/meal' %>

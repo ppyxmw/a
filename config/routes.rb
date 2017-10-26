@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   
-  devise_for :customers
+  devise_for :chefs, :controllers => { :registrations => "chef/registrations" }
+  devise_for :customers, :controllers => { :registrations => 'customer/registrations' }
   resources :meals
   # resources :customer_meals
   match 'like', to: 'customer_meals#like', via: :post
   match 'unlike', to: 'customer_meals#unlike', via: :delete
   
-  devise_for :chefs, :controllers => { :registrations => "chef/registrations" }
   root 'welcome#index'
   
   #mealplan controller
