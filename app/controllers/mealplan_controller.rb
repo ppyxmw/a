@@ -7,13 +7,8 @@ class MealplanController < ApplicationController
   end
 
   def update
-    # @errors = Mealplan.update_plan_errors(params)
-    # if @errors != "" then 
-    #   flash[:error] = @errors
-    # else
-      Mealplan.update_plan(params)
-      flash[:success] = "Meal plan updated."
-    # end
+    Mealplan.update_plan(params)
+    flash[:success] = "Meal plan updated."
     redirect_to :root
   end
 end
