@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
   has_many :customer_meals
   has_many :meals, through: :customer_meals
   has_one :mealplan
+
   
   # creates a new heart row with post_id and user_id
   def like(meal)

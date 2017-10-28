@@ -1,6 +1,13 @@
 class Mealplan < ApplicationRecord
   belongs_to :customer
-
+  has_many :addresses, as: :addressable
+  
+  # def first_line
+  #   Mealplan.address.street
+  # end
+  
+  
+  
 # this is more for testing purposes or if you want for each customer to have a 
 # default meal plan. You can generate one any time someone creates an account.
   def self.create_default(customer)
@@ -44,17 +51,38 @@ class Mealplan < ApplicationRecord
 
   def self.update_plan(params)
     #"Params " + params["mealplan"]["title"].to_s)
-    @params = params["mealplan"]
-    @mealplan = Mealplan.find_by_id(@params["id"])
+    @params = params
+    @mealplan = Mealplan.find_by_id(@params["mealplan"]["id"])
     # if @plan != nil then 
 	   # @plan.title = @mealplan["title"]
-	    @mealplan.monday = @params["monday"]
-	    @mealplan.tuesday = @params["tuesday"]
-	    @mealplan.wednesday = @params["wednesday"]
-	    @mealplan.thursday = @params["thursday"]
-	    @mealplan.friday = @params["friday"]
-	    @mealplan.saturday = @params["saturday"]
-	    @mealplan.sunday = @params["sunday"]
+	    @mealplan.monday = @params["mealplan"]["monday"]
+	    @mealplan.tuesday = @params["mealplan"]["tuesday"]
+	    @mealplan.wednesday = @params["mealplan"]["wednesday"]
+	    @mealplan.thursday = @params["mealplan"]["thursday"]
+	    @mealplan.friday = @params["mealplan"]["friday"]
+	    @mealplan.saturday = @params["mealplan"]["saturday"]
+	    @mealplan.sunday = @params["mealplan"]["sunday"]
+	    if  @params["monday_address"]
+	      @mealplan.monday_address = @params["monday_address"]["address_id"].to_i
+	    end
+	    if  @params["tuesday_address"]
+	      @mealplan.tuesday_address = @params["tuesday_address"]["address_id"].to_i
+	    end
+	    if  @params["wednesday_address"]
+	      @mealplan.wednesday_address = @params["wednesday_address"]["address_id"].to_i
+	    end
+	    if  @params["thursday_address"]
+	      @mealplan.thursday_address = @params["thursday_address"]["address_id"].to_i
+	    end
+	    if  @params["friday_address"]
+	      @mealplan.friday_address = @params["friday_address"]["address_id"].to_i
+	    end
+	    if  @params["saturday_address"]
+	      @mealplan.saturday_address = @params["saturday_address"]["address_id"].to_i
+	    end
+	    if  @params["sunday_address"]
+	      @mealplan.sunday_address = @params["sunday_address"]["address_id"].to_i
+	    end
 	    @mealplan.state = "Active"    
 	    @mealplan.save
 	    

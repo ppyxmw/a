@@ -1,4 +1,5 @@
 <% if current_customer %>
+<%# debugger %>
   <div class="card" id="settings">
     <h4 class="settings_heading">Delivery Settings</h4>
     <%= form_for @plan, :html => {:class => 'form-horizontal'}, :method => 'POST', url: :update_mymealplan do |f| %>
@@ -9,7 +10,13 @@
           <%= f.select :monday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.monday %>
         </div>
         <div>
-          <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.monday_address)[0] != nil) %>
+            <%= select("monday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, {:selected => Address.where(:id => @plan.monday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.monday_address)[0] == nil %>
+            <%= select("monday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% else %>
+            Address needed
+          <% end %>
         </div>
       </div>
       <div class="form-group">
@@ -18,7 +25,13 @@
           <%= f.select :tuesday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.tuesday %>
         </div>
         <div>
-          <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.tuesday_address)[0] != nil)%>
+            <%= select("tuesday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => @plan.tuesday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.tuesday_address)[0] == nil %>
+            <%= select("tuesday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% else %>
+            Address needed
+          <% end %>
         </div>
       </div>
       <div class="form-group">
@@ -27,7 +40,13 @@
           <%= f.select :wednesday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.wednesday %>
         </div>
         <div>
-          <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.wednesday_address)[0] != nil)%>
+            <%= select("wednesday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => @plan.wednesday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.wednesday_address)[0] == nil %>
+            <%= select("wednesday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% else %>
+            Address needed
+          <% end %>     
         </div>
       </div>
       <div class="form-group">
@@ -36,7 +55,13 @@
           <%= f.select :thursday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.thursday %>
         </div>
         <div>
-          <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.thursday_address)[0] != nil)%>
+            <%= select("thursday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => @plan.thursday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.thursday_address)[0] == nil %>
+            <%= select("thursday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% else %>
+            Address needed
+          <% end %>   
         </div>
       </div>
       <div class="form-group">
@@ -45,7 +70,13 @@
           <%= f.select :friday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.friday %>
         </div>
         <div>
-          <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.friday_address)[0] != nil)%>
+            <%= select("friday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => @plan.friday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.friday_address)[0] == nil %>
+            <%= select("friday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% else %>
+            Address needed
+          <% end %>     
         </div>
       </div>
       <div class="form-group">
@@ -54,7 +85,13 @@
           <%= f.select :saturday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.saturday %>
         </div>
         <div>
-          <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.saturday_address)[0] != nil)%>
+            <%= select("saturday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => @plan.saturday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.saturday_address)[0] == nil %>
+            <%= select("saturday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% else %>
+            Address needed
+          <% end %>  
         </div>
       </div>
       <div class="form-group">
@@ -63,10 +100,23 @@
           <%= f.select :sunday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.sunday %>
         </div>
         <div>
-          <%= f.select :monday, [['34 Pentlands c... ', 0], ['Address2 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => "Address 1" %>
+          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.sunday_address)[0] != nil)%>
+            <%= select("sunday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => @plan.sunday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.sunday_address)[0] == nil %>
+            <%= select("sunday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% else %>
+            Address needed
+          <% end %>      
         </div>
       </div>      
-      <%= f.submit "Update", :class => 'btn btn-success settings_button' %>
+      <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 %>
+        <%= link_to('+ Address', new_address_path,
+                  class: 'btn btn-md btn-default new_address_btn2', title: 'Logout') %>  
+        <%= f.submit "Update", :class => 'btn btn-success settings_button' %>
+      <% else %>
+        <%= link_to('+ Address', new_address_path,
+                  class: 'btn btn-md btn-success new_address_btn', title: 'Logout') %>      
+      <% end %>
     <% end %>
   </div>
 <% end %>

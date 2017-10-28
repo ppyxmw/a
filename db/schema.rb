@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026104455) do
+ActiveRecord::Schema.define(version: 20171027204459) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street"
+    t.string "city"
+    t.string "postcode"
+    t.string "details"
+    t.string "phone"
+    t.integer "addressable_id"
+    t.string "addressable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
+  end
 
   create_table "chefs", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -82,6 +95,13 @@ ActiveRecord::Schema.define(version: 20171026104455) do
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "monday_address"
+    t.integer "tuesday_address"
+    t.integer "wednesday_address"
+    t.integer "thursday_address"
+    t.integer "friday_address"
+    t.integer "saturday_address"
+    t.integer "sunday_address"
     t.index ["customer_id"], name: "index_mealplans_on_customer_id"
   end
 

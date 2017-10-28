@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   get 'mymealplan', to: 'mealplan#show', as: 'mymealplan'
   post 'mymealplan/update', to: 'mealplan#update', as: 'update_mymealplan'
 
-
+  resources :addresses
 
 end

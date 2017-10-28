@@ -793,11 +793,24 @@ footer > p {
   padding: 20px;
 }
 
-#mealplan_tuesday_address {
-  margin-left: 21px;
+#mealplan_monday_address, #mealplan_tuesday_address, 
+#mealplan_wednesday_address, #mealplan_thursday_address, 
+#mealplan_friday_address, #mealplan_saturday_address, 
+#mealplan_sunday_address {
+  // margin-left: 21px;
 }
 
 .settings_button {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.new_address_btn {
+  margin-top: 3px;
+  margin-bottom: 17px;
+}
+
+.new_address_btn2 {
   margin-top: 5px;
   margin-bottom: 15px;
 }
