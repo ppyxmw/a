@@ -779,6 +779,22 @@ footer > p {
   }
   .form-group {
     margin-bottom: 11px;
+    padding-right: 16px; 
+  }
+  #street_address, #city_address, #postcode_address, #details_address, #phone_details {
+    margin-right: 25px;
+    margin-bottom: 15px;
+    min-width: 232px;
+    max-width: 232px;
+    padding-right: 0px;
+  }
+  
+  #div_for_address_btn {
+    margin-right: 35px;
+  }
+  
+  #cancel_address {
+    margin-right: 4px;
   }
 }
 
@@ -813,4 +829,27 @@ footer > p {
 .new_address_btn2 {
   margin-top: 5px;
   margin-bottom: 15px;
+}
+
+#street_address, #city_address, #postcode_address, #details_address, #phone_details {
+  min-width: 227px;
+  max-width: 227px;
+  margin-left: 24px;
+  margin-bottom: 13px;;
+}
+
+.details_address {
+  max-height: 75px;
+  min-height: 75px;
+  min-width: 228px;
+  max-width: 228px;
+}
+
+.delivery_address_heading {
+  margin-top: 20px;
+  margin-bottom: 13px;
+}
+
+#phone_details {
+  margin-bottom: 9px;
 }

@@ -8,6 +8,10 @@ class AddressesController < ApplicationController
     @address = Address.new
   end
   
+  def edit
+    @address = Address.find_by_id(params[:id])
+  end
+  
   def create
     @address = Address.new(address_params)
     @address.addressable = current_customer.mealplan
@@ -22,6 +26,17 @@ class AddressesController < ApplicationController
       end
     end
   end
+  
+  def update
+  end
+  
+  def destroy
+    @address = Address.find(params[:id])
+    @address.destroy
+    flash[:danger] = "That address was successfully."
+    redirect_to addresses_path
+  end
+  
     
   private
   def address_params
