@@ -1,62 +1,41 @@
+<% if @address.errors.any? %>
+  <div id="error_expl" class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= pluralize(@address.errors.count, "error") %> prohibited your this from being saved:</h3>
+    </div>
+    <div class="panel-body">
+      <ul>
+      <% @address.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
 <div class="card">
   <%= form_for @address, :html => { multipart: true, :class => "form-horizontal meal" } do |f| %>
-  <% if @address.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@address.errors.count, "error") %> prohibited this meal from being saved:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @address.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
-  
-  <div class="form-group">
-    <%= f.label :street, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :street, :class => 'form-control' %>
-    </div>
-    <%= f.error_span(:street) %>
+  <h4 class="delivery_address_heading">Edit Address</h4>
+  <div class="form-group" id="street_address">
+    <%= f.text_field :street, :class => 'form-control col-md-12', :placeholder => "Address line 1" %>
   </div>
-  <div class="form-group">
-    <%= f.label :city, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :city, :class => 'form-control' %>
-    </div>
-    <%= f.error_span(:city) %>
+  <div class="form-group" id="street_address">
+    <%= f.text_field :city, :class => 'form-control col-md-6', :placeholder => "City or Town" %>
   </div>
-  <div class="form-group">
-    <%= f.label :postcode, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :postcode, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:postcode)%>
+  <div class="form-group" id="postcode_address">
+    <%= f.text_field :postcode, :class => 'form-control', :placeholder => "Postcode" %>
   </div>
-  <div class="form-group">
-    <%= f.label :details, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :details, :class => 'form-control' %>
-    </div>
-    <%= f.error_span(:details) %>
+  <div class="form-group" id="details_address">
+    <%= f.text_area :details, :class => 'form-control details_address', :placeholder => "Extra info: where to leave your food so we keep on time, and difficult to find entrances." %>
   </div>
-  <div class="form-group">
-    <%= f.label :phone, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :phone, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:phone)%>
+  <div class="form-group" id="phone_details">
+    <%= f.text_field :phone, :class => 'form-control', :placeholder => "Phone number" %>
   </div>
   
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%#= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                meals_path, :class => 'btn btn-default' %>
-    </div>
+  <div class="form-group" id="div_for_address_btn">
+      <%= link_to t('.cancel', :default => t("helpers.links.back")),
+                addresses_path, :class => 'btn btn-default', :id => 'cancel_address' %>
+      <%= f.submit "Update", :class => 'btn btn-success' %>
   </div>
 <% end %>
 </div>

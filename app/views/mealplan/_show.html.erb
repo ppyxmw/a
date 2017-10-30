@@ -110,12 +110,12 @@
         </div>
       </div>      
       <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 %>
-        <%= link_to('+ Address', new_address_path,
-                  class: 'btn btn-md btn-default new_address_btn2', title: 'Logout') %>  
+        <%= link_to('Address', addresses_path,
+                  class: 'btn btn-md btn-default new_address_btn2', title: 'Address') %>  
         <%= f.submit "Update", :class => 'btn btn-success settings_button' %>
       <% else %>
         <%= link_to('+ Address', new_address_path,
-                  class: 'btn btn-md btn-success new_address_btn', title: 'Logout') %>      
+                  class: 'btn btn-md btn-success new_address_btn', title: 'Address') %>      
       <% end %>
     <% end %>
   </div>

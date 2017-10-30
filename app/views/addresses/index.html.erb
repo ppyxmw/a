@@ -1,0 +1,22 @@
+<div class="card">
+  <h4 class="delivery_address_heading saved_addresses_heading">My saved addresses</h4>
+  <div class="addresses_div">
+    <% @addresses.each do |address| %>
+    <div class="address_item" >
+      <span><%= address.street.truncate(18) %></span>
+      <%= link_to "Edit", edit_address_path(address.id), :class => 'btn-primary btn-sm edit-btn'%>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                address_path(address),
+                :method => :delete,
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-xs btn-danger delete-btn delete-btn2' %>      
+    </div></br>
+    <% end %>
+  </div>
+  <div class="form-group" id="div_for_address_btn">
+    <%= link_to t('.cancel', :default => t("helpers.links.back")),
+                root_path, :class => 'btn btn-default', :id => 'cancel_address' %>
+    <%= link_to t('.Add', :default => t("helpers.links.add_new")),
+                new_address_path, :class => 'btn btn-success', :id => 'cancel_address' %>
+  </div>
+</div>

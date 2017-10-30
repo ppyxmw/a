@@ -1,7 +1,7 @@
 class AddressesController < ApplicationController
 
   def index
-    @addresses = current_customer.addresses.all
+    @addresses =  Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all
   end
   
   def new
