@@ -10,4 +10,14 @@ class Address < ApplicationRecord
   def first_line
     "#{street.truncate(16)}"
   end
+  
+  def self.update_address(params)
+    @address = Address.find_by_id(params[:id])
+    @address.street = params["address"]["street"]
+    @address.city = params["address"]["city"]
+    @address.postcode = params["address"]["postcode"]
+    @address.details = params["address"]["details"]
+    @address.phone = params["address"]["phone"]
+    @address.save
+  end
 end

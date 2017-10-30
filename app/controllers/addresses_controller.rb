@@ -28,6 +28,9 @@ class AddressesController < ApplicationController
   end
   
   def update
+    Address.update_address(params)
+    flash[:success] = "Address updated."
+    redirect_to :root
   end
   
   def destroy

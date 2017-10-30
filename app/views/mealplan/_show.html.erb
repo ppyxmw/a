@@ -1,7 +1,7 @@
 <% if current_customer %>
 <%# debugger %>
   <div class="card" id="settings">
-    <h4 class="settings_heading">Delivery Settings</h4>
+    <h4 class="settings_heading">Order Settings</h4>
     <%= form_for @plan, :html => {:class => 'form-horizontal'}, :method => 'POST', url: :update_mymealplan do |f| %>
       <%= f.hidden_field :id, :value => @plan.id %>
       <div class="form-group">
