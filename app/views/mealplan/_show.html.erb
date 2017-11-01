@@ -1,19 +1,19 @@
 <% if current_customer %>
-<%# debugger %>
   <div class="card" id="settings">
     <h4 class="settings_heading">Order Settings</h4>
-    <%= form_for @plan, :html => {:class => 'form-horizontal'}, :method => 'POST', url: :update_mymealplan do |f| %>
-      <%= f.hidden_field :id, :value => @plan.id %>
+    <%# debugger %>
+    <%= form_for current_customer.mealplan, :html => {:class => 'form-horizontal'}, :method => 'POST', url: :update_mymealplan do |f| %>
+      <%= f.hidden_field :id, :value => current_customer.mealplan.id %>
       <div class="form-group">
         <%= f.label :mon, :class => 'control-label col-sm-2' %>
         <div class="col-sm-1">
           <%= f.select :monday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.monday %>
         </div>
         <div>
-          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.monday_address)[0] != nil) %>
-            <%= select("monday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, {:selected => Address.where(:id => @plan.monday_address)[0].id } ) %>
-          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.monday_address)[0] == nil %>
-            <%= select("monday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% if Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => current_customer.mealplan.monday_address)[0] != nil) %>
+            <%= select("monday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, {:selected => Address.where(:id => current_customer.mealplan.monday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => current_customer.mealplan.monday_address)[0] == nil %>
+            <%= select("monday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
           <% else %>
             Address needed
           <% end %>
@@ -25,10 +25,10 @@
           <%= f.select :tuesday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.tuesday %>
         </div>
         <div>
-          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.tuesday_address)[0] != nil)%>
-            <%= select("tuesday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => @plan.tuesday_address)[0].id } ) %>
-          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.tuesday_address)[0] == nil %>
-            <%= select("tuesday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% if Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => current_customer.mealplan.tuesday_address)[0] != nil)%>
+            <%= select("tuesday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => current_customer.mealplan.tuesday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => current_customer.mealplan.tuesday_address)[0] == nil %>
+            <%= select("tuesday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
           <% else %>
             Address needed
           <% end %>
@@ -40,10 +40,10 @@
           <%= f.select :wednesday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.wednesday %>
         </div>
         <div>
-          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.wednesday_address)[0] != nil)%>
-            <%= select("wednesday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => @plan.wednesday_address)[0].id } ) %>
-          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.wednesday_address)[0] == nil %>
-            <%= select("wednesday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% if Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => current_customer.mealplan.wednesday_address)[0] != nil)%>
+            <%= select("wednesday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => current_customer.mealplan.wednesday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => current_customer.mealplan.wednesday_address)[0] == nil %>
+            <%= select("wednesday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
           <% else %>
             Address needed
           <% end %>     
@@ -55,10 +55,10 @@
           <%= f.select :thursday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.thursday %>
         </div>
         <div>
-          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.thursday_address)[0] != nil)%>
-            <%= select("thursday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => @plan.thursday_address)[0].id } ) %>
-          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.thursday_address)[0] == nil %>
-            <%= select("thursday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% if Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => current_customer.mealplan.thursday_address)[0] != nil)%>
+            <%= select("thursday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => current_customer.mealplan.thursday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => current_customer.mealplan.thursday_address)[0] == nil %>
+            <%= select("thursday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
           <% else %>
             Address needed
           <% end %>   
@@ -70,10 +70,10 @@
           <%= f.select :friday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.friday %>
         </div>
         <div>
-          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.friday_address)[0] != nil)%>
-            <%= select("friday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => @plan.friday_address)[0].id } ) %>
-          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.friday_address)[0] == nil %>
-            <%= select("friday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% if Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => current_customer.mealplan.friday_address)[0] != nil)%>
+            <%= select("friday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => current_customer.mealplan.friday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => current_customer.mealplan.friday_address)[0] == nil %>
+            <%= select("friday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
           <% else %>
             Address needed
           <% end %>     
@@ -85,10 +85,10 @@
           <%= f.select :saturday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.saturday %>
         </div>
         <div>
-          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.saturday_address)[0] != nil)%>
-            <%= select("saturday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => @plan.saturday_address)[0].id } ) %>
-          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.saturday_address)[0] == nil %>
-            <%= select("saturday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% if Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => current_customer.mealplan.saturday_address)[0] != nil)%>
+            <%= select("saturday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => current_customer.mealplan.saturday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => current_customer.mealplan.saturday_address)[0] == nil %>
+            <%= select("saturday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
           <% else %>
             Address needed
           <% end %>  
@@ -100,16 +100,16 @@
           <%= f.select :sunday, [['0 ', 0], ['1 ', 1], ['2 ', 2], ['3 ', 3], ['4 ', 4], ['5 ', 5], ['6 ', 6], ['7 ', 7], ['8 ', 8], ['9 ', 9], ['10 ', 10]], :selected => current_customer.mealplan.sunday %>
         </div>
         <div>
-          <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => @plan.sunday_address)[0] != nil)%>
-            <%= select("sunday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => @plan.sunday_address)[0].id } ) %>
-          <% elsif Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => @plan.sunday_address)[0] == nil %>
-            <%= select("sunday_address", "address_id", Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+          <% if Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => current_customer.mealplan.sunday_address)[0] != nil)%>
+            <%= select("sunday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :selected => Address.where(:id => current_customer.mealplan.sunday_address)[0].id } ) %>
+          <% elsif Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => current_customer.mealplan.sunday_address)[0] == nil %>
+            <%= select("sunday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
           <% else %>
             Address needed
           <% end %>      
         </div>
       </div>      
-      <% if Address.where(:addressable_id => @plan.id, :addressable_type => "Mealplan").count > 0 %>
+      <% if Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 %>
         <%= link_to('Address', addresses_path,
                   class: 'btn btn-md btn-default new_address_btn2', title: 'Address') %>  
         <%= f.submit "Update", :class => 'btn btn-success settings_button' %>

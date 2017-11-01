@@ -1,0 +1,48 @@
+<div class="container">
+  <%= link_to "Admin", admin_path, :class => 'btn btn-default'%> </br>
+  <h1>Invoices admin</h1>
+  <%= @no_invoices %>&nbsp;invoices. </br></br>
+  Pick a date:
+  <input id="date" type="text" value="<%=@date%>" size="9"/>
+  <div id="generate_invoices" class="btn btn-primary" style="width:200px;">Generate invoices</div>
+  </br>
+ <%if @invoices.size > 0 then %>
+   <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Customer email</th>
+          <th>Date</th>
+          <th>No. meals</th>
+  	<th>Paid</th>
+  	<th>Payment token</th>
+  	<th>Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% @counter = 0%>
+       <% for @invoice in @invoices do%>
+        <tr>
+          <td><% @counter = @counter + 1%> <%=@counter%>
+          </td>
+          <td><%=@invoice.customer.email%></td>
+          <td><div data-toggle="tooltip" data-placement="top" title="<%= @invoice.date.to_s%>" style="display:inline;"><%= @invoice.date.strftime("%d %b %Y")%></div></td>
+          <td><%= @invoice.no_meals%></td>
+          <td><%= @invoice.paid %></td>
+        	<td><%= @invoice.payment_token %></td>
+        	<td><%= link_to "Charge", admin_charge_invoice_path(@invoice.id), :class => 'btn btn-primary btn-sm'%>&nbsp;<%= link_to "Delete", admin_delete_invoice_path(@invoice.id), :class => 'btn btn-danger btn-sm'%></td>
+        </tr>
+       <% end %>
+      </tbody>
+    </table>
+   </div>
+ <% end %>
+</div>
+
+<script>
+  $("#generate_invoices").click(function(){
+    var current_date = String($("#date").val());
+    window.location = "/admin/generate_invoices/" + current_date;
+  });
+</script>

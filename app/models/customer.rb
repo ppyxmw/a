@@ -1,11 +1,11 @@
 class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :customer_meals
+  has_many :customer_meals, :dependent => :destroy
   has_many :meals, through: :customer_meals
-  has_one :mealplan
+  has_one :mealplan, :dependent => :destroy
 
   
   # creates a new heart row with post_id and user_id

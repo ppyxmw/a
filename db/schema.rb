@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171027204459) do
+ActiveRecord::Schema.define(version: 20171031234038) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -83,6 +83,23 @@ ActiveRecord::Schema.define(version: 20171027204459) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.integer "customer_id"
+    t.datetime "due_date"
+    t.integer "prediction_range"
+    t.decimal "price"
+    t.string "currency"
+    t.string "currency_sign"
+    t.integer "no_meals"
+    t.boolean "paid"
+    t.boolean "fulfillable"
+    t.boolean "fulfilled"
+    t.string "payment_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_invoices_on_customer_id"
+  end
+
   create_table "mealplans", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "monday"
@@ -102,6 +119,8 @@ ActiveRecord::Schema.define(version: 20171027204459) do
     t.integer "friday_address"
     t.integer "saturday_address"
     t.integer "sunday_address"
+    t.decimal "lat"
+    t.decimal "long"
     t.index ["customer_id"], name: "index_mealplans_on_customer_id"
   end
 
