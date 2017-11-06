@@ -768,35 +768,6 @@ footer > p {
   }
 }
 
-@media (max-width: 768px) {
-  .form-horizontal .control-label {
-    display: inherit; 
-  }
-  .form-group {
-    display: flex;
-    float: right;
-    padding-right: 12px;
-  }
-  .form-group {
-    margin-bottom: 11px;
-    padding-right: 16px; 
-  }
-  #street_address, #city_address, #postcode_address, #details_address, #phone_details {
-    margin-right: 25px;
-    margin-bottom: 15px;
-    min-width: 232px;
-    max-width: 232px;
-    padding-right: 0px;
-  }
-  
-  #div_for_address_btn {
-    margin-right: 35px;
-  }
-  
-  #cancel_address {
-    margin-right: 4px;
-  }
-}
 
 .settings_heading {
   margin-top: 3px;
@@ -821,12 +792,13 @@ footer > p {
   margin-bottom: 15px;
 }
 
-.new_address_btn {
+.add_address_btn {
   margin-top: 3px;
   margin-bottom: 17px;
+  width: 106px;
 }
 
-.new_address_btn2 {
+#add_edit_address_btn {
   margin-top: 5px;
   margin-bottom: 15px;
 }
@@ -875,8 +847,70 @@ footer > p {
 .addresses_div {
   padding-top: 10px;
   height: 262px;
+  overflow: auto;
 }
 
 .saved_addresses_heading {
   margin-top: 30px;
+}
+
+#add_address_btn2 {
+  margin-bottom: -2px;
+}
+
+#cancel_address2 {
+  margin-bottom: -5px;
+}
+
+#append_to_index {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .form-horizontal .control-label {
+    display: inherit; 
+  }
+  .form-group {
+    display: flex;
+    float: right;
+    padding-right: 12px;
+  }
+  .form-group {
+    margin-bottom: 11px;
+    padding-right: 16px; 
+  }
+  #street_address, #city_address, #postcode_address, #details_address, #phone_details {
+    margin-right: 25px;
+    margin-bottom: 15px;
+    min-width: 232px;
+    max-width: 232px;
+    padding-right: 0px;
+  }
+  
+  #div_for_address_btn {
+    margin-right: 35px;
+  }
+  
+  .cancel_address {
+    margin-right: 4px;
+  }
+  
+  #add_address_btn2 {
+    margin-bottom: -5px;
+    margin-top: 0px;
+  }
+  
+  #div_for_address_btn {
+    margin-right: 30px;
+  }
+  
+  #street_address, #city_address, #postcode_address, #details_address, #phone_details {
+    margin-bottom: 12px;
+    min-width: 229px;
+    max-width: 229px;
+  }
+  
+  .cancel_address {
+    margin-right: 4px;
+  }
 }

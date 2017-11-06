@@ -19,28 +19,33 @@ class AddressesController < ApplicationController
       if @address.save
         flash[:notice] = 'Your address was successfully added.'
         wants.html { redirect_to root_path }
-        wants.xml  { render :xml => @address, :status => :created, :location => @address }
       else
         wants.html { render :action => "new" }
-        wants.xml  { render :xml => @address.errors, :status => :unprocessable_entity }
+        flash[:notice] = 'blank saved'
       end
+      @addresses =  Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all
+      wants.js
     end
   end
   
   def update
     Address.update_address(params)
     flash[:success] = "Address updated."
-    redirect_to :root
+    @addresses =  Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all
+    respond_to do |wants|
+      # wants.html { redirect_to addresses_path }
+      wants.js
+    end
   end
   
   def destroy
-    @address = Address.find(params[:id])
-    @address.destroy
-    flash[:danger] = "That address was successfully."
-    redirect_to addresses_path
+    @address = Address.destroy(params[:id])
+    respond_to do |wants|
+      wants.html { redirect_to root_path }
+      wants.js
+    end
   end
   
-    
   private
   def address_params
     params.require(:address).permit(:street, :city, :postcode, :details, :phone)

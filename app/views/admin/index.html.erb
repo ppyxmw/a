@@ -4,14 +4,14 @@
     
     <tbody>
       <tr>
-        <td><%= link_to "Meal plans", admin_mealplans_path%>&nbsp;<span class="badge"><%#=@no_mealplans%></span></td>
+        <td><%= link_to "Meal plans", admin_mealplans_path%>&nbsp;<span class="badge"><%= @no_mealplans %></span></td>
       </tr>
-      <!--<tr>-->
-      <!--   <td><%#= link_to "Customers", admin_customers_path%>&nbsp;<span class="badge"><%#=@no_customers%></span></td>-->
-      <!--</tr>-->
-      <!--<tr>-->
-      <!--   <td><%#= link_to "Chefs", admin_chefs_path%>&nbsp;<span class="badge"><%#=@no_chefs%></span></td>-->
-      <!--</tr>-->
+      <tr>
+         <td>Customers<%#= link_to "Customers", admin_customers_path%>&nbsp;<span class="badge"><%=@no_customers%></span></td>
+      </tr>
+      <tr>
+         <td>Chefs<%#= link_to "Chefs", admin_chefs_path%>&nbsp;<span class="badge"><%=@no_chefs%></span></td>
+      </tr>
       <tr>
          <td><%= link_to "Invoices", admin_invoices_path%>&nbsp;<span class="badge"><%=@no_invoices%></span></td>
       </tr>

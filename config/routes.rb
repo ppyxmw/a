@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   
    #admin invoices
   get '/admin/invoices', to: 'admin#invoices', as: 'admin_invoices'
-  # get '/admin/generate_invoices/:date', to: 'admin#generate_invoices', as: 'admin_generate_invoices'
-  # get '/admin/delete_invoice/:id', to: 'admin#delete_invoice', as: 'admin_delete_invoice'
-  # get '/admin/charge_invoice/:invoiceid', to: 'admin#charge_invoice', as: 'admin_charge_invoice'
+  get '/admin/generate_invoices/:date', to: 'admin#generate_invoices', as: 'admin_generate_invoices'
+  get '/admin/delete_invoice/:id', to: 'admin#delete_invoice', as: 'admin_delete_invoice'
+  get '/admin/charge_invoice/:invoiceid', to: 'admin#charge_invoice', as: 'admin_charge_invoice'
   
   #admin mealplans
   get 'admin/mealplans', to: 'admin#mealplans', as: 'admin_mealplans'

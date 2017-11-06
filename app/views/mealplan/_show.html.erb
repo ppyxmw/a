@@ -109,13 +109,11 @@
           <% end %>      
         </div>
       </div>      
-      <% if Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 %>
-        <%= link_to('Address', addresses_path,
-                  class: 'btn btn-md btn-default new_address_btn2', title: 'Address') %>  
-        <%= f.submit "Update", :class => 'btn btn-success settings_button' %>
+      <% if Address.where(:addressable_id => current_customer.mealplan.id ).count != 0 %>
+        <%= link_to "Manage", addresses_path, class: "btn btn-md btn-default", id: "add_edit_address_btn", remote: true %>
+        <%= f.submit "Save", :class => 'btn btn-success settings_button' %>
       <% else %>
-        <%= link_to('+ Address', new_address_path,
-                  class: 'btn btn-md btn-success new_address_btn', title: 'Address') %>      
+        <%= link_to "Add Address", new_address_path, class: "btn btn-md btn-success add_address_btn", id: "add_address_btn", remote: true %>
       <% end %>
     <% end %>
   </div>

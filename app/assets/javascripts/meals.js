@@ -26,36 +26,14 @@ function toggleFunction(item) {
 }
 
 function likeFunction(id){  
-  // var meal = document.getElementById("liked_" + id);
   var button = document.getElementById("like_" + id);
-  // var link2 = document.getElementById("like2_" + id);
   var on = document.getElementById("on_" + id);
   var off = document.getElementById("off_" + id);
   var repeat = "likeFunction(" + id + ")"
-  // if (meal.outerHTML[21] == "l"){   
-        // document.getElementById(id).click()
     $(".switch").css("cursor", "wait");
     $(".slider").css("cursor", "wait");
     $("body").css("cursor", "wait");
     $(off).attr("onclick", "");
     $(on).attr("onclick", "");
     $(button).click();
-    // $.post(path);
-
-    
-    
-    // $.ajax({
-    //   type: "POST",
-    //   url: "/unlike?meal_id=" + id,
-    //   beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},    });
-  // } else {
-    // $(".switch").css("cursor", "wait");
-    // $(".slider").css("cursor", "wait");
-    // $("body").css("cursor", "wait");
-    // $(link2).click()
-    // $.ajax({
-    //   type: "POST",
-    //   url: "/like?meal_id=" + id,
-    //   beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},    });
-  // }; 
 };

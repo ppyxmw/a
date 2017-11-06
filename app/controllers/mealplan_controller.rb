@@ -2,9 +2,8 @@ class MealplanController < ApplicationController
   before_action :authenticate_customer!
   
   def show 
-    debugger
     Mealplan.create_default(current_customer) unless current_customer.mealplan != nil
-    # @plan = Mealplan.find_by_id(current_customer.id)
+    #!!!!!! Why can't I pass this @plan variable to the show view, I had to it directly in views
     # @plan = current_customer.mealplan
   end
 
