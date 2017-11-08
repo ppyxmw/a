@@ -1,4 +1,7 @@
-$('#address_id_<% @address.id %>').remove();
+$('#my_addresses_list').remove();
+$('#settings').remove();
+$('#enter_address_form').remove();
+$('#append_to_index').append('<%= j render("show") %>');
 
 $("#bootstrap-flash").html("<%= j (bootstrap_flash) %>");
 $(".alert").hide();

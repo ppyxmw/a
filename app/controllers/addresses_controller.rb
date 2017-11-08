@@ -17,32 +17,31 @@ class AddressesController < ApplicationController
     @address.addressable = current_customer.mealplan
     respond_to do |wants|
       if @address.save
-        flash[:notice] = 'Your address was successfully added.'
-        wants.html { redirect_to root_path }
+        wants.html { redirect_to addresses_path }
+        wants.js {  flash.now[:notice] = "Succesfully added address." }
       else
-        wants.html { render :action => "new" }
-        flash[:notice] = 'blank saved'
+        # wants.html { redirect_to addresses_path }
+        wants.js {  flash.now[:danger] = "That was a bank address!" }
+        # flash[:danger] = "That was a bank address!"
       end
       @addresses =  Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all
-      wants.js
     end
   end
   
   def update
     Address.update_address(params)
-    flash[:success] = "Address updated."
     @addresses =  Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all
     respond_to do |wants|
-      # wants.html { redirect_to addresses_path }
-      wants.js
+      wants.html { redirect_to addresses_path }
+      wants.js {  flash.now[:notice] = "Succesfully updated address." }
     end
   end
   
   def destroy
     @address = Address.destroy(params[:id])
     respond_to do |wants|
-      wants.html { redirect_to root_path }
-      wants.js
+      wants.html { redirect_to addresses_path }
+      wants.js {  flash.now[:danger] = "Succesfully deleted address." }
     end
   end
   

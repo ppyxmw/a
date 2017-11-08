@@ -1,2 +1,9 @@
 $('#enter_address_form').remove();
 $('#append_to_index').append('<%= j render('addresses/index')%>');
+
+$("#bootstrap-flash").html("<%= j (bootstrap_flash) %>");
+$(".alert").hide();
+$(".alert").slideDown(350);
+$(".alert").delay(2500).fadeTo(200, 0).slideUp(350, function(){
+  $(this).remove(); 
+});

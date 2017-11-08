@@ -2,7 +2,7 @@
   <div class="card" id="settings">
     <h4 class="settings_heading">Order Settings</h4>
     <%# debugger %>
-    <%= form_for current_customer.mealplan, :html => {:class => 'form-horizontal'}, :method => 'POST', url: :update_mymealplan do |f| %>
+    <%= form_for current_customer.mealplan, remote: true, html: {:class => 'form-horizontal'}, method: 'POST', url: :update_mymealplan do |f| %>
       <%= f.hidden_field :id, :value => current_customer.mealplan.id %>
       <div class="form-group">
         <%= f.label :mon, :class => 'control-label col-sm-2' %>
@@ -13,7 +13,7 @@
           <% if Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && (Address.where(:id => current_customer.mealplan.monday_address)[0] != nil) %>
             <%= select("monday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, {:selected => Address.where(:id => current_customer.mealplan.monday_address)[0].id } ) %>
           <% elsif Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").count > 0 && Address.where(:id => current_customer.mealplan.monday_address)[0] == nil %>
-            <%= select("monday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }) %>
+            <%= select("monday_address", "address_id", Address.where(:addressable_id => current_customer.mealplan.id, :addressable_type => "Mealplan").all.collect {|p| [p.street.truncate(16), p.id] }, { :prompt => "Select address" }, html: { id: "testing_123"}) %>
           <% else %>
             Address needed
           <% end %>
@@ -110,11 +110,20 @@
         </div>
       </div>      
       <% if Address.where(:addressable_id => current_customer.mealplan.id ).count != 0 %>
-        <%= link_to "Manage", addresses_path, class: "btn btn-md btn-default", id: "add_edit_address_btn", remote: true %>
-        <%= f.submit "Save", :class => 'btn btn-success settings_button' %>
+        <%= link_to "My Addresses", addresses_path, class: "btn btn-md btn-default", id: "add_edit_address_btn", remote: true %>
+        <%= f.submit "Save settings", class: 'btn btn-primary settings_button', id: "save_settings_btn" %>
       <% else %>
         <%= link_to "Add Address", new_address_path, class: "btn btn-md btn-success add_address_btn", id: "add_address_btn", remote: true %>
       <% end %>
     <% end %>
   </div>
 <% end %>
+
+<script>
+$(function(){
+  $("#monday_address_address_id, #mealplan_monday, #tuesday_address_address_id, #mealplan_tuesday, #wednesday_address_address_id, #mealplan_wednesday, #thursday_address_address_id, #mealplan_thursday, #friday_address_address_id, #mealplan_friday, #saturday_address_address_id, #mealplan_saturday, #sunday_address_address_id, #mealplan_sunday").change(function () {
+        $('#add_edit_address_btn').css("display", "none");
+        $('#save_settings_btn').css("display", "inline-block");
+    });
+});
+</script>

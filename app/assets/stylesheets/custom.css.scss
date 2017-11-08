@@ -801,6 +801,7 @@ footer > p {
 #add_edit_address_btn {
   margin-top: 5px;
   margin-bottom: 15px;
+  width: 115px;
 }
 
 #street_address, #city_address, #postcode_address, #details_address, #phone_details {
@@ -913,4 +914,13 @@ footer > p {
   .cancel_address {
     margin-right: 4px;
   }
+}
+
+.alert {
+  margin-bottom: 0px;
+}
+
+#save_settings_btn {
+  display: none;
+    width: 115px;
 }
