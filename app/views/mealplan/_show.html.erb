@@ -111,7 +111,7 @@
       </div>      
       <% if Address.where(:addressable_id => current_customer.mealplan.id ).count != 0 %>
         <%= link_to "My Addresses", addresses_path, class: "btn btn-md btn-default", id: "add_edit_address_btn", remote: true %>
-        <%= f.submit "Save settings", class: 'btn btn-primary settings_button', id: "save_settings_btn" %>
+        <%= f.submit "Save changes", class: 'btn btn-primary settings_button', id: "save_settings_btn" %>
       <% else %>
         <%= link_to "Add Address", new_address_path, class: "btn btn-md btn-success add_address_btn", id: "add_address_btn", remote: true %>
       <% end %>

@@ -16,7 +16,7 @@ class MealplanController < ApplicationController
     @plan = Mealplan.find_by_id(current_customer)
     respond_to do |wants|
       wants.html { redirect_to root_path }
-      wants.js {  flash.now[:notice] = "Succesfully updated your settings." }
+      wants.js {  flash.now[:notice] = "Changes saved." }
     end
   end
 end
